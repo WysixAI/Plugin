@@ -1,0 +1,14 @@
+name: AnarchiaItemy
+version: 1.0.0
+main: pl.anarchia.itemy.AnarchiaItemy
+api-version: '1.21'
+author: Anarchia.GG
+commands:
+  anarchiaitemy:
+    aliases: [ai]
+    description: Zarządzanie eventówkami
+    permission: anarchiaitemy.admin
+permissions:
+  anarchiaitemy.admin: {default: op}
+  anarchiaitemy.books: {default: op}
+  anarchiaitemy.region: {default: op}
