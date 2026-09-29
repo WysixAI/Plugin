@@ -1,0 +1,36 @@
+name: AnarchiaItemy
+version: '${project.version}'
+main: gg.anarchia.itemy.AnarchiaItemy
+api-version: '1.21'
+authors: [ WysixAI ]
+website: https://discord.gg/yfnDmhhv5Q
+description: Eventowki / przedmioty eventowe w stylu Anarchia.GG (1.21.4+)
+folia-supported: false
+
+commands:
+  anarchiaitemy:
+    description: Glowna komenda pluginu AnarchiaItemy
+    usage: /anarchiaitemy help
+    aliases: [ anarchiaiitemy, aitemy, anarchia, eventowki, ai ]
+
+permissions:
+  iAnarchiaitemy.admin:
+    description: Pozwala na uzywanie komend administracyjnych pluginu
+    default: op
+    children:
+      iAnarchiaitemy.books: true
+      iAnarchiaitemy.use: true
+      iAnarchiaitemy.bypass.region: true
+      Anarchiaitemy.region: true
+  iAnarchiaitemy.books:
+    description: Pozwala na uzywanie zaczarowanych ksiazek z pluginu
+    default: op
+  Anarchiaitemy.region:
+    description: Pozwala na zarzadzanie regionami
+    default: op
+  iAnarchiaitemy.bypass.region:
+    description: Pozwala ignorowac flagi regionow
+    default: op
+  iAnarchiaitemy.use:
+    description: Pozwala uzywac przedmiotow eventowych
+    default: true

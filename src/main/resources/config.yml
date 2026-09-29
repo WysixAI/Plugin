@@ -1,0 +1,138 @@
+# ------------------------------------------------------------------
+#  AnarchiaItemy - eventowki w stylu Anarchia.GG
+#  Plugin dodaje najnowsze przedmioty z Anarchia.GG.
+#  Uwaga! Aby przedmioty posiadaly tekstury, potrzebujesz oryginalnego
+#  teksturepacka z serwera Anarchia.GG (discord: https://discord.gg/yfnDmhhv5Q)
+#  Kazdy przedmiot ma swoje custom-model-data w pliku items.yml.
+# ------------------------------------------------------------------
+
+settings:
+  # Prefix uzywany we wszystkich wiadomosciach (mozesz zmienic w messages.yml)
+  language: pl
+  # Czy wyswietlac informacje o przeladowaniu (cooldownach) na action barze
+  cooldown-actionbar: true
+  # Czy przedmioty maja dzialac tylko w swiatach z listy ponizej (pusta lista = wszystkie swiaty)
+  enabled-worlds: []
+  # Czy wylaczyc dzialanie przedmiotow eventowych na graczach z ta sama druzyna/scoreboard team
+  ignore-same-team: false
+  # Czy wymagac permisji iAnarchiaitemy.use do uzywania przedmiotow
+  require-use-permission: false
+  # Co ile tickow odswiezane sa efekty trzymanych/zalozonych przedmiotow
+  effect-task-period: 10
+  # Czy sprawdzac aktualizacje (wylaczone - plugin nie laczy sie z internetem)
+  check-updates: false
+
+# Domyslne flagi dodawane do KAZDEGO przedmiotu (mozesz nadpisac w items.yml).
+# Dostepne: HIDE_ENCHANTS, HIDE_ATTRIBUTES, HIDE_UNBREAKABLE, HIDE_DESTROYS,
+#           HIDE_PLACED_ON, HIDE_POTION_EFFECTS, HIDE_DYE, HIDE_ARMOR_TRIM
+default-flags:
+  - HIDE_ENCHANTS
+  - HIDE_ATTRIBUTES
+  - HIDE_UNBREAKABLE
+
+# System regionow (permisja: Anarchiaitemy.region)
+regions:
+  enabled: true
+  # Material przedmiotu do zaznaczania regionow (/anarchiaitemy region wand)
+  wand-material: GOLDEN_AXE
+  # Domyslne flagi nowo tworzonego regionu
+  default-flags:
+    pvp: true
+    build: false
+    interact: true
+    items: true
+    explosions: false
+    enter: true
+
+# System eventow (/anarchiaitemy event <nazwa>)
+events:
+  broadcast-prefix: '&8[&c&lEVENT&8] &r'
+  dropparty:
+    enabled: true
+    # Ile przedmiotow zostanie wyrzuconych
+    amount: 40
+    # Co ile tickow leci kolejny przedmiot
+    interval: 10
+    # Lista mozliwych nagrod (id przedmiotow z items.yml lub MATERIAL:ILOSC)
+    rewards:
+      - anarchicznymiecz
+      - anarchicznyluk
+      - anarchicznykilof
+      - excalibur
+      - koronaanarchi
+      - lizak
+      - piernik
+      - magicznycukierek
+      - GOLDEN_APPLE:8
+      - ENDER_PEARL:16
+  losowanie:
+    enabled: true
+    # Lista przedmiotow losowanych dla graczy
+    rewards:
+      - kupaanarchi
+      - lizak
+      - rozakupidyna
+      - sniezynka
+      - lewejajko
+      - parawan
+      - watacukrowa
+  koth:
+    enabled: true
+    # Ile sekund trzeba utrzymac region, aby wygrac
+    capture-seconds: 120
+    # Nagroda dla zwyciezcy (id przedmiotu)
+    reward: koronaanarchi
+  tntrain:
+    enabled: true
+    duration-seconds: 60
+    radius: 25
+    per-wave: 6
+    interval: 20
+    fuse-ticks: 60
+    # Czy TNT z eventu ma niszczyc bloki
+    destroy-blocks: false
+
+# Menu zaczarowywania (/anarchiaitemy enchant, przedmiot "zaczarowanie")
+enchanting:
+  title: '&8» &c&lZaczarowanie przedmiotu'
+  # Czy zaczarowanie ma kosztowac poziomy doswiadczenia
+  cost-levels: 0
+  # Lista zaklec dostepnych w menu: <klucz>: <maksymalny poziom>
+  enchantments:
+    sharpness: 10
+    protection: 10
+    unbreaking: 10
+    efficiency: 10
+    fortune: 5
+    fire_aspect: 5
+    knockback: 5
+    looting: 5
+    power: 10
+    punch: 5
+    flame: 1
+    infinity: 1
+    thorns: 5
+    depth_strider: 3
+    feather_falling: 6
+    mending: 1
+    silk_touch: 1
+    sweeping_edge: 5
+    impaling: 5
+    loyalty: 4
+    channeling: 1
+    riptide: 4
+    multishot: 1
+    piercing: 5
+    quick_charge: 5
+    density: 5
+    breach: 4
+    wind_burst: 3
+
+# Menu panelu (/anarchiaitemy panel)
+gui:
+  panel-title: '&8» &c&lAnarchiaItemy &8- &7Panel'
+  items-title: '&8» &c&lPodglad przedmiotow &7(%page%/%pages%)'
+  events-title: '&8» &c&lEventy'
+  regions-title: '&8» &c&lRegiony'
+  backpack-title: '&8» &5&lPlecak Drakuli'
+  filler: GRAY_STAINED_GLASS_PANE
